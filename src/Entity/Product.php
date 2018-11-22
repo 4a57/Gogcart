@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation\SoftDeleteable;
 
 /**
  * @ApiResource(attributes={
@@ -12,9 +15,12 @@ use Doctrine\ORM\Mapping as ORM;
  *     "maximum_items_per_page"=3,
  *     })
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @SoftDeleteable(fieldName="deletedAt", timeAware=false, hardDelete=false)
  */
 class Product
 {
+    use TimestampableEntity, SoftDeleteableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
