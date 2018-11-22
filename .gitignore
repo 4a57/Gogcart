@@ -1,4 +1,5 @@
 /.idea/
+/.rr.yaml
 
 ###> symfony/framework-bundle ###
 /.env
