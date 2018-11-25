@@ -30,7 +30,7 @@ class CartProduct
      * @ORM\ManyToOne(targetEntity="App\Entity\Cart", inversedBy="cartProducts")
      * @ORM\JoinColumn(nullable=false)
      * @onSoftDelete(type="CASCADE")
-     * @MaxProductsInCart(count="3")
+     * @MaxProductsInCart(limit="3")
      */
     private $cart;
 

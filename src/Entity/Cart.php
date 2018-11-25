@@ -32,10 +32,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                 "summary": "Add product to cart",
  *                 "parameters": {
  *                     { "name": "id", "in": "path", "required": "true", "type": "integer" },
- *                     { "in": "body", "required": "true", "type": "object", "properties": {
- *                             "id": {"type": "string"}
- *                         }
- *                     }
+ *                     { "in": "body", "required": "true", "properties": {"id": {"type": "string"}}}
  *                 }
  *             }
  *         },
@@ -72,21 +69,14 @@ class Cart
     /**
      * @ORM\OneToMany(targetEntity="CartProduct", mappedBy="cart", orphanRemoval=true, cascade={"remove", "persist"})
      * @Assert\Valid()
+     * @Assert\Count(max=3)
      * @var Collection|CartProduct[]
      */
     private $cartProducts;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Product", fetch="EAGER")
-     * @Groups({"output"})
-     * @var Collection|Product[]
-     */
-    private $products;
-
     public function __construct()
     {
         $this->cartProducts = new ArrayCollection();
-        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -100,7 +90,7 @@ class Cart
     public function getTotalPrice(): string
     {
         $totalPrice = 0;
-        foreach ($this->products as $product) {
+        foreach ($this->getProducts() as $product) {
             $totalPrice += $product->getPrice() * 100;
         }
 
@@ -115,13 +105,27 @@ class Cart
         return $this->cartProducts;
     }
 
+    public function addCartProduct(CartProduct $cartProduct): self
+    {
+        $this->cartProducts[] = $cartProduct;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Product[]
+     * @Groups({"output"})
      */
     public function getProducts(): Collection
     {
-        return $this->products;
+        $products = new ArrayCollection();
+        foreach ($this->cartProducts as $cartProduct) {
+            $products->add($cartProduct->getProduct());
+        }
+
+        return $products;
     }
+
 
     public function addProduct(Product $product): self
     {

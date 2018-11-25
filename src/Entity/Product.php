@@ -8,11 +8,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
  *     attributes={
- *         "pagination_items_per_page"=30,
+ *         "pagination_items_per_page"=3,
  *         "pagination_client_items_per_page"=true,
  *         "maximum_items_per_page"=3,
  *         "normalization_context"={"groups"={"output"}},
@@ -44,12 +45,16 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"input", "output"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3, max=255)
      */
     private $title;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      * @Groups({"input", "output"})
+     * @Assert\Type("numeric")
+     * @Assert\NotBlank()
      */
     private $price;
 

@@ -92,6 +92,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "monolog/monolog": {
+        "version": "1.24.0"
+    },
     "nelmio/cors-bundle": {
         "version": "1.5",
         "recipe": {
@@ -158,6 +161,9 @@
     "symfony/asset": {
         "version": "v4.1.7"
     },
+    "symfony/browser-kit": {
+        "version": "v4.1.7"
+    },
     "symfony/cache": {
         "version": "v4.1.7"
     },
@@ -180,6 +186,9 @@
         "version": "v4.1.7"
     },
     "symfony/doctrine-bridge": {
+        "version": "v4.1.7"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.1.7"
     },
     "symfony/dotenv": {
@@ -231,6 +240,27 @@
             "branch": "master",
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
+    },
+    "symfony/monolog-bridge": {
+        "version": "v4.1.7"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "18ebf5a940573a20de06f9c4060101eeb438cf3d"
+        }
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "0e548dd90adba18fabd4ef419b14d361fe4d6c74"
         }
     },
     "symfony/polyfill-mbstring": {

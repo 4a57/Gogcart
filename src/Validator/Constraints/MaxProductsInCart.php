@@ -9,6 +9,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class MaxProductsInCart extends Constraint
 {
-    public $count = 3;
+    public $limit = 3;
     public $message = 'You cannot add another products to your cart. Limit is {{ limit }}';
 }

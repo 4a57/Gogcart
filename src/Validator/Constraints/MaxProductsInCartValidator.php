@@ -22,9 +22,9 @@ class MaxProductsInCartValidator extends ConstraintValidator
             throw new UnexpectedTypeException($cart, Cart::class);
         }
 
-        if ($cart->getCartProducts()->count() > $constraint->count) {
+        if ($cart->getCartProducts()->count() > $constraint->limit) {
             $this->context->buildViolation($constraint->message)
-                ->setParameter('{{ limit }}', $constraint->count)
+                ->setParameter('{{ limit }}', $constraint->limit)
                 ->addViolation();
         }
     }

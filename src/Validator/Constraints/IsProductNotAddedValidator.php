@@ -41,6 +41,6 @@ class IsProductNotAddedValidator extends ConstraintValidator
 
     private function isProductDuplicated(CartProduct $a, CartProduct $b): bool
     {
-        return $a->getProduct() == $b->getProduct() && $a->getId() != $b->getId();
+        return $a->getProduct() == $b->getProduct() && $a->getId() !== $b->getId();
     }
 }
