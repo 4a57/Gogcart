@@ -11,7 +11,7 @@ class ListTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const LIST_PRODUCT_URI = '/api/products';
+    const LIST_PRODUCT_URI = '/products';
     const DATA_FORMAT = 'json';
 
     /**

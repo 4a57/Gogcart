@@ -11,7 +11,7 @@ class DeleteTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const DELETE_PRODUCT_URI = '/api/products/%s';
+    const DELETE_PRODUCT_URI = '/products/%s';
     const DATA_FORMAT = 'json';
 
     /**

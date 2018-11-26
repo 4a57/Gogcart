@@ -12,7 +12,7 @@ class GetTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const GET_CART_URI = '/api/carts/%s';
+    const GET_CART_URI = '/carts/%s';
     const DATA_FORMAT = 'json';
 
     /**

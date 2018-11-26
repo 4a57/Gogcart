@@ -12,8 +12,8 @@ class AddProduct extends WebTestCase
 {
     use FixtureLoadable;
 
-    const ADD_PRODUCT_URI = '/api/carts/%s/products';
-    const GET_PRODUCT_URI = '/api/products/%s';
+    const ADD_PRODUCT_URI = '/carts/%s/products';
+    const GET_PRODUCT_URI = '/products/%s';
     const DATA_FORMAT = 'json';
 
     /**

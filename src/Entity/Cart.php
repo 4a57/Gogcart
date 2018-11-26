@@ -32,7 +32,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                 "summary": "Add product to cart",
  *                 "parameters": {
  *                     { "name": "id", "in": "path", "required": "true", "type": "integer" },
- *                     { "in": "body", "required": "true", "properties": {"id": {"type": "string"}}}
+ *                     { "in": "body", "name": "product", "required": "true", "properties": {"id": {"type": "string"}}}
  *                 }
  *             }
  *         },

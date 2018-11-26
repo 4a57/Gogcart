@@ -12,7 +12,7 @@ class RemoveProductTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const REMOVE_PRODUCT_URI = '/api/carts/%s/products/%s';
+    const REMOVE_PRODUCT_URI = '/carts/%s/products/%s';
     const DATA_FORMAT = 'json';
 
     /**

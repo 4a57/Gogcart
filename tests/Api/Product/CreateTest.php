@@ -11,7 +11,7 @@ class CreateTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const CREATE_PRODUCT_URI = '/api/products';
+    const CREATE_PRODUCT_URI = '/products';
     const DATA_FORMAT = 'json';
 
     /**

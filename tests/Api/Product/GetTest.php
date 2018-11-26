@@ -11,7 +11,7 @@ class GetTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const GET_PRODUCT_URI = '/api/products/%s';
+    const GET_PRODUCT_URI = '/products/%s';
     const DATA_FORMAT = 'json';
 
     /**

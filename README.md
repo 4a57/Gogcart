@@ -31,6 +31,21 @@ To run project you need docker. You can get this [here](https://www.docker.com/g
     ```
 
 Now you can open `http://localhost:8080` to see API documentation and start to work with the API.
+Swagger documentation UI allow to try requests directly from a browser.
+
+### Note
+Note that the application works based on API resources. In requests body you should use full resource id in REST convention like `/products/2` instead of just entity id like `2`.
+For example to add product to cart you should make request like:
+
+```bash
+curl -X POST "http://localhost:8080/carts/1/products" -H "accept: application/json" -d '{"id": "products/1"}'
+```
+
+instead of:
+
+```bash
+curl -X POST "http://localhost:8080/carts/1/products" -H "accept: application/json" -d '{"id": "1"}'
+```
 
 ## Running the tests
 
@@ -39,10 +54,12 @@ You can run test on running docker container:
 make test
 ```
 
+## Deployment
+Dockerfile is not ready to use on production environment - it's only for development.
+
 ## Built With
 
 * [Symfony 4](https://symfony.com/) - Web framework
 * [Api Platform](https://api-platform.com/) - API framework for Symfony
 * [RoadRunner](https://github.com/spiral/roadrunner) - PHP server
 * [Docker](https://www.docker.com/) - Containerization
-

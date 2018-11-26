@@ -12,7 +12,7 @@ class CreateTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const CREATE_CART_URI = '/api/carts';
+    const CREATE_CART_URI = '/carts';
     const DATA_FORMAT = 'json';
 
     /**

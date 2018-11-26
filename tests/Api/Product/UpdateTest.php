@@ -11,7 +11,7 @@ class UpdateTest extends WebTestCase
 {
     use FixtureLoadable;
 
-    const UPDATE_PRODUCT_URI = '/api/products/%s';
+    const UPDATE_PRODUCT_URI = '/products/%s';
     const DATA_FORMAT = 'json';
 
     /**
