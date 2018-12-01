@@ -11,5 +11,8 @@ stop:
 restart-data:
 	docker exec gogcart sh -c "scripts/restart_data.sh"
 
+build-dev:
+	docker build -f Dockerfile.dev -t gogcart-dev .
+
 test:
-	docker exec gogcart php "bin/phpunit"
+	docker run gogcart-dev php "bin/phpunit"

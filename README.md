@@ -49,13 +49,26 @@ curl -X POST "http://localhost:8080/carts/1/products" -H "accept: application/js
 
 ## Running the tests
 
-You can run test on running docker container:
+To run test you need to build dev docker image:
+
+```bash
+make build-dev
+```
+
+Then you can just run test on this image by:
+
 ```bash
 make test
 ```
 
 ## Deployment
-Dockerfile is not ready to use on production environment - it's only for development.
+CI/CD is not configured yet but you can build and use docker image yourself. You need to build the image by:
+
+```bash
+make build
+```
+
+You will get a docker image named `gogcart` wchih you can push to the docker repository
 
 ## Built With
 

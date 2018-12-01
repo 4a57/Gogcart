@@ -1,0 +1,22 @@
+FROM php:7.2 AS symfonyDev
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    zlib1g-dev \
+    libicu-dev
+
+RUN docker-php-ext-install intl \
+    && docker-php-ext-install zip
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY . /application
+WORKDIR /application
+
+RUN export $(cat .env | grep "^[^#;]") \
+    && composer install --prefer-dist --no-progress \
+    --no-suggest --quiet --optimize-autoloader --no-interaction \
+    && php bin/console cache:clear
+
+RUN php bin/phpunit --version
